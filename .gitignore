@@ -1,0 +1,17 @@
+# OS固有のファイル
+.DS_Store
+Thumbs.db
+
+# IDEやエディタの設定ファイル
+.vscode/
+.idea/
+*.iml
+
+# テンポラリファイル
+*.tmp
+*.swp
+
+/node_modules/
+/dist/
+/.env
+*.log

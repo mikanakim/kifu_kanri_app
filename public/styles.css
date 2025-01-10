@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+canvas {
+    display: block;
+}
+
+#renderer-container {
+    position: absolute;
+    top: 16%;
+    left: 2%;
+    width: 48%;
+    height: 50%;
+}
+#renderer-background {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    width: 50%;
+    height: 55%;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 30px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    margin: 0; 
+    padding: 0;
+}
+
+#renderer_yoko {
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    width: 43%;
+    height: 45%;
+    color: #2c2c2f;
+    background: #cde4ff;/*背景色*/
+    overflow-x: scroll;
+}
+
+#search-hash {
+    position: absolute;
+    top: 57%;
+    left: 55%;
+    width: 43%;
+    height: 10%;
+    color: #2c2c2f;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    background: #cde4ff;/*背景色*/
+}
+
+#hash-input {
+    border: 1px solid #999;
+    padding: 3px 5px;
+    border-radius: 20px;
+    height: 2.0em;
+    width: 245px;
+    overflow: hidden;
+}
+
+#search-hash-btn {
+    position: absolute;
+    top: 25%;
+    left: 42%;
+    padding: 6px 14px;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    font-size: 14px;
+}
+
+#hash-result {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    width: 43%;
+    height: 15%;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    background: #cde4ff;/*背景色*/
+    display: flex; /* フレックスボックスを有効化 */
+    flex-direction: column; /* 縦方向に配置 */
+    justify-content: space-between; /* 縦方向で均等配置 */
+}
+
+#show-hash-result {
+    font-size: 14px;
+    height: 50%;
+    background: #8fc1b7;/*背景色*/
+    overflow-x: scroll;
+}
+
+#set-state-btn {
+    padding: 6px 14px;
+    border-radius: 5px;
+    background: #5c5e63;
+    color: #fff;
+    font-size: 14px;
+}
+
+#replay-bar {
+    position: absolute;
+    top: 71%;
+    left: 2%;
+    padding: 0;
+    margin: 0;
+    width: 45%;
+    height: 7%;
+    color: #2c2c2f;
+    background: #cde4ff;/*背景色*/
+    display: flex; /* フレックスボックスを有効化 */
+    align-items: center; /* 縦方向中央揃え */
+}
+
+#all-reset-btn {
+    position: absolute;
+    left: 5%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background: #774040;
+    color: #fff;
+    font-size: 16px;
+}
+
+#undo-button {
+    position: absolute;
+    left: 25%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background: #5c5e63;
+    color: #fff;
+    font-size: 16px;
+}
+
+#reset-balls-btn{
+    position: absolute;
+    left: 65%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background: #5c5e63;
+    color: #fff;
+    font-size: 16px;
+}
+
+#save-state-btn{
+    position: absolute;
+    left: 87%;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    font-size: 16px;
+}
+
+.text {
+    position: absolute;
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.top-text {
+    top: 2%;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
+

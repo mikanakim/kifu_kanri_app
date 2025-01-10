@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Cube</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 上に表示するテキスト -->
+    <div class="text top-text">
+        立体四目並べ棋譜管理アプリ
+    </div>
+    <div id="renderer_yoko">
+        <pre id="output"></pre>
+    </div>
+    <div id="search-hash">
+        棋譜treeの検索<br>
+        <input type="text" id="hash-input" placeholder="例: jlpc">
+        <button id="search-hash-btn">検索</button>        
+    </div>
+    <div id="hash-result">
+        <div id="hash-result-text">
+            棋譜検索の結果を表示<br>
+        </div>
+        <div id="show-hash-result"></div>
+        <div id="hash-result-text2">
+            Model Viewerにセット    
+            <button id="set-state-btn">SET</button>
+        </div>
+    </div>
+
+    <div id="renderer">
+        <!-- rendererの背景の四角形を表示 -->
+        <div id="renderer-background"></div>
+        <!-- rendererが表示される場所 -->
+        <div id="renderer-container"></div>
+    </div>
+    <div id="replay-bar">
+        <button id="all-reset-btn">reset</button>
+        <button id="undo-button">◀ 1手戻る</button>
+        <button id="reset-balls-btn">1手進む ▶</button>
+        <button id="save-state-btn">保存</button>
+    </div>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "./three.module.js",
+            "GLTFLoader": "./GLTFLoader.js",
+            "OrbitControls": "./OrbitControls.js"
+          }
+        }
+    </script>
+
+    <script>
+        // サーバーからスクリプトの出力を取得してHTMLに表示する関数
+        async function fetchScriptOutput() {
+            try {
+                const response = await fetch('/script-output'); // サーバーのエンドポイントを呼び出す
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();  // サーバーからのレスポンスをJSONとしてパース
+                
+                if (data.result) {
+                    // Unicodeエスケープシーケンスをデコードして改行を<br>に置き換え
+                    const decodedResult = decodeUnicodeEscape(data.result);
+                    document.getElementById('output').textContent = decodedResult; // インデントを含む結果をそのまま表示
+                } else {
+                    document.getElementById('output').textContent = 'スクリプト結果がまだ利用できません';
+                }
+            } catch (error) {
+                document.getElementById('output').textContent = `Error: ${error.message}`;
+            }
+        }
+    
+        // Unicodeエスケープシーケンスをデコードする関数
+        function decodeUnicodeEscape(str) {
+            return str.replace(/\\u[\dA-F]{4}/gi, (match) => {
+                return String.fromCharCode(parseInt(match.replace('\\u', ''), 16));
+            });
+        }
+    
+        // ページロード時に実行
+        window.onload = fetchScriptOutput;
+    </script>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

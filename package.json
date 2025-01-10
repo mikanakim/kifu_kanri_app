@@ -1,0 +1,19 @@
+{
+  "name": "threejs_cube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-stringify": "^6.5.2",
+    "express": "^4.21.2",
+    "three": "^0.172.0"
+  }
+}
