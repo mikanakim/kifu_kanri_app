@@ -15,3 +15,5 @@ Thumbs.db
 /dist/
 /.env
 *.log
+
+/__pycache__/
