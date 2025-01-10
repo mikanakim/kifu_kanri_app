@@ -56,7 +56,7 @@ server.jsと同じディレクトリに移動。
 
 Server is running on http://localhost:8000
 ```
-これが表示されたらブラウザでhttp://localhost:8000でにアクセスしてください。  
+これが表示されたらブラウザでhttp://localhost:8000 にアクセスしてください。  
 ※javascriptは有効にしてください。
 
 ## 機能
