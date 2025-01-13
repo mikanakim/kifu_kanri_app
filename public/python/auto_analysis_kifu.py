@@ -45,15 +45,15 @@ for i in range(len(kifu)):
         kifu[i][-1] = int(kifu[i][-1])
 
 new = []
-visited = set()  # 再帰の解析済みデータを追跡
+visited = set()
 
 def kifu_analysis(aa, nn):
     global new, kifu, visited
     if len(kifu) == 0:
         new.append(aa)
-        visited.add(tuple(aa))  # 訪問済みマーク
+        visited.add(tuple(aa))
     
-    if tuple(aa) in visited:  # 既に訪問したデータなら処理しない
+    if tuple(aa) in visited:
         return
     
     visited.add(tuple(aa))
