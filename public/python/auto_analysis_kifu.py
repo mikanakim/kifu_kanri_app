@@ -45,11 +45,18 @@ for i in range(len(kifu)):
         kifu[i][-1] = int(kifu[i][-1])
 
 new = []
+visited = set()  # 再帰の解析済みデータを追跡
 
 def kifu_analysis(aa, nn):
-    global new, kifu
+    global new, kifu, visited
     if len(kifu) == 0:
         new.append(aa)
+        visited.add(tuple(aa))  # 訪問済みマーク
+    
+    if tuple(aa) in visited:  # 既に訪問したデータなら処理しない
+        return
+    
+    visited.add(tuple(aa))
     for i in range(nn):
         common_elements, idx = extract_common_elements(aa, kifu[nn-1-i])
         if len(common_elements) != 0: # 共通項がある
