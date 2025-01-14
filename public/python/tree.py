@@ -10,6 +10,11 @@ state = game.State()
 replay_state = game.State()
 file_path = './public/python/kifu.csv'
 
+if len(sys.argv) > 1:
+    args = [x for x in sys.argv[1] if x.isdigit()]
+else:
+    args = ''
+
 # csvファイル
 with open(file_path) as f:
     kifu = list(csv.reader(f))
@@ -34,6 +39,15 @@ hash_data = load_hash_data(csv_filename)  # データをロード
 
 # メイン出力
 print('「_s」「_g」は直前の分岐後、最初に石を置く方の手番を示しています(先手・後手)\n')
+
+#解析後の棋譜treeを出力する
+if args == '':
+    print('latest added: Not Found\n')
+else:
+    args_hash = [str(i) for i in args]
+    print('latest added: ', generate_id_from_list(args_hash), '\n')
+
+
 y = q_notation(copy.deepcopy(kifu), copy.deepcopy(kifu), [], copy.deepcopy(kifu))
 print_tree(y, kifu, hash_data, level=0)
 

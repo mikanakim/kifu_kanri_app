@@ -102,5 +102,5 @@ kifu_analysis(args, len(kifu))
 for i in range(len(new)):
     save_kifu(new[i])
 
-#解析後の棋譜treeを出力する
-os.system('python3 ./public/python/tree.py')
+hikisu = " ".join(map(str, args))
+os.system(f'python3 ./public/python/tree.py "{hikisu}"')
